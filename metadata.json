@@ -1,0 +1,7 @@
+{
+    "name" : "template_module",
+    "description" : "a template 1.21 ctjs module",
+    "version" : "0.0.1",
+    "author": "your name goes here",
+    "entry": "index.js"
+}
