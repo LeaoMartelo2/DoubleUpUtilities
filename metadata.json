@@ -1,7 +1,7 @@
 {
-    "name" : "template_module",
-    "description" : "a template 1.21 ctjs module",
+    "name" : "DoubleUpUtilities",
+    "description" : "Utilities for Murder Mystery double up mode",
     "version" : "0.0.1",
-    "author": "your name goes here",
+    "author": "LeaoMartelo2",
     "entry": "index.js"
 }
