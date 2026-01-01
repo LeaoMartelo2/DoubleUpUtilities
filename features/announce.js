@@ -22,21 +22,26 @@ register("chat", () => {
 
 //////////////////////////////////////////////////
 
-const murderer_died_warn_text = new TextComponent({
-    text: "&lClick here to warn other players the &c&lMurderer&r&l died",
-    clickEvent: {
-        action: "run_command",
-        value: "/warn_murderer_dead"
-    },
-    hoverEvent: {
-        action: "show_text",
-        value: "Warns the ther playes about the status of the Murderer"
-    }
-});
 
-register("command", () => {
-    ChatLib.say("/ac %detective% died and the bow dropped");
-}).setName("warn_murderer_dead");
+function build_murderer_death_tc(name) {
+
+    var tmp_command = "/warn_murderer_dead " + name;
+
+    const murderer_died_warn_text = new TextComponent({
+        text: "&lClick here to warn other players the &c&lMurderer&r&l died",
+        clickEvent: {
+            action: "run_command",
+            value: tmp_command
+        },
+        hoverEvent: {
+            action: "show_text",
+            value: "Warns the ther playes about the status of the Murderer"
+        }
+    });
+
+    return murderer_died_warn_text;
+
+}
 
 register("command",  function(name) {
 
@@ -45,20 +50,15 @@ register("command",  function(name) {
         return;
     }
 
-    ChatLib.say("/ac" + name + " is Murderer, i saw chat");
+    ChatLib.say("/ac " + name + " was the Murderer, i saw chat");
 
 
-});
+}).setName("warn_murderer_dead");
 
-register("chat", (murderer, event) => {ac
+register("chat", (murderer, event) => {
 
-    ChatLib
+    var msg = build_murderer_death_tc(murderer);
+    ChatLib.chat(msg);
 
 }).setCriteria("One of the Murderers, ${murderer}, was killed.");
 
-/*
-
-One of the Murderers, Sipkyy, was killed.
-
-
-*/
