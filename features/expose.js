@@ -36,7 +36,7 @@ register("command", function(name) {
         chat_msg("Name at /expose_murderer must not be empty or undefined.");
         return;
     }
-    ChatLib.say("/ac" + name + " is Murderer, i saw chat");
+    ChatLib.say("/ac " + name + " is Murderer, i saw chat");
 }).setName("expose_murderer");
 
 register("command", function(name) {
