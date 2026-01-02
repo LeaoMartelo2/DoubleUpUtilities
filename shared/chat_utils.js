@@ -1,4 +1,7 @@
 export function chat_msg(msg) {
-    ChatLib.chat("&4[&bDoubleUpUtilities&4]&r " + msg);
+    ChatLib.chat("&a[DUU]&a " + msg);
 }
 
+export function chat_error(msg) {
+    ChatLib.chat("&c[DUU]&c " + msg);
+}

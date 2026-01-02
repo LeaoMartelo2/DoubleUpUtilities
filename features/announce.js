@@ -1,4 +1,7 @@
-import { chat_msg } from "../shared/chat_utils"
+// @TODO: fix the auto triggering of the messages having to repeat the .say code, because it does not evaluate ctjs commands and does notlet you run it
+
+import { chat_msg, chat_error } from "../shared/chat_utils"
+import { settings, snd } from "./settings"
 
 const warn_bow_drop_text = new TextComponent({
     text: "&lClick here to warn other players the &b&lDetective&r&l died",
@@ -17,7 +20,17 @@ register("command", () => {
 }).setName("warn_bow_drop");
 
 register("chat", () => {
-    ChatLib.chat(warn_bow_drop_text);
+
+    if(!settings.auto_announce) {
+       ChatLib.chat(warn_bow_drop_text);
+    }
+
+    if(settings.auto_announce) {
+        ChatLib.say("/ac %detective% died and the bow dropped");
+        snd.play();
+    }
+
+
 }).setCriteria("A Bow has been dropped!").setContains();
 
 //////////////////////////////////////////////////
@@ -46,7 +59,7 @@ function build_murderer_death_tc(name) {
 register("command",  function(name) {
 
     if(name == undefined) {
-        chat_msg("Name at /murderer_died must not be empty or undefined.");
+        chat_error("Name at /warn_murderer_dead must not be empty or undefined.");
         return;
     }
 
@@ -57,8 +70,16 @@ register("command",  function(name) {
 
 register("chat", (murderer, event) => {
 
-    var msg = build_murderer_death_tc(murderer);
-    ChatLib.chat(msg);
+    if(!settings.auto_announce) {
+        var msg = build_murderer_death_tc(murderer);
+        ChatLib.chat(msg);
+    }
+
+    if(settings.auto_announce) {
+        ChatLib.say("/ac " + murderer + " was the Murderer, i saw chat");
+        snd.play();
+    }
+        
 
 }).setCriteria("One of the Murderers, ${murderer}, was killed.");
 

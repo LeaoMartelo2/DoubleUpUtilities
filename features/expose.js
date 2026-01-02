@@ -1,4 +1,6 @@
 import { chat_msg } from "../shared/chat_utils"
+import { settings, snd } from "./settings"
+
 
 // functions
 
@@ -54,16 +56,32 @@ register("command", function(name) {
 
 register("chat", (murderer, event) => {
 
-    let msg = build_text_component(murderer, "murderer");
-    ChatLib.chat(msg);
+    if(!settings.auto_expose) {
+        let msg = build_text_component(murderer, "murderer");
+        ChatLib.chat(msg);
+    }
+
+    if(settings.auto_expose) {
+        chat_msg("auto_expose enabled, sending message");
+        ChatLib.say("/ac " + murderer + " is Murderer, i saw chat");
+        snd.play();
+    }
 
 }).setCriteria("Your fellow Murderer is: ${murderer}").setContains();
 
 
 register("chat", (detective, event) => {
 
-    let msg = build_text_component(detective, "detective");
-    ChatLib.chat(msg);
+    if(!settings.auto_expose) {
+        let msg = build_text_component(detective, "detective");
+        ChatLib.chat(msg);
+    }
+
+    if(settings.auto_expose) {
+        chat_msg("auto_expose enabled, sending message");
+        ChatLib.say("/ac " + detective + " is Detective, i saw chat");
+        snd.play();
+    }
 
 }).setCriteria("Your fellow Detective is: ${detective}").setContains();
 
