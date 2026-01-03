@@ -1,7 +1,7 @@
 import { chat_msg, chat_error } from "../shared/chat_utils"
 
 
-export const snd = new Sound({source: "ding.ogg", priority: true, loop: false, stream: false}).setVolume(1.0).setPitch(0);
+export const snd = new Sound({source: "anvil_land.ogg", priority: true, loop: false, stream: false}).setVolume(1.0).setPitch(2);
 
 // java classes 
 const Files = Java.type("java.nio.file.Files");

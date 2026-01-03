@@ -63,7 +63,8 @@ register("command",  function(name) {
         return;
     }
 
-    ChatLib.say("/ac " + name + " was the Murderer, i saw chat");
+    let rand = Math.floor(Math.random() * 101);
+    ChatLib.say("/ac I suspect " + name + " is one of the murderers, " + rand + "% certainty");
 
 
 }).setName("warn_murderer_dead");
@@ -76,7 +77,8 @@ register("chat", (murderer, event) => {
     }
 
     if(settings.auto_announce) {
-        ChatLib.say("/ac " + murderer + " was the Murderer, i saw chat");
+        let rand = Math.floor(Math.random() * 101);
+        ChatLib.say("/ac I suspect " + murderer + " is one of the murderers, " + rand + "% certainty");
         snd.play();
     }
         
