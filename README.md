@@ -3,7 +3,17 @@
 A 1.21 CTJS module for Murder Mystery Double Up mode
 
 
+## View and change settings with /duu
+
+### Configurating
+
+- Change by either clicking the option on `/duu` or using the manual override command `/duu set <setting> <true/false>`
+
+
 ## Feature List
+
+<details closed>
+<summary>Features</sumarry>
 
 ### Fellow Murderer / Detective Exposer
 
@@ -15,4 +25,13 @@ A 1.21 CTJS module for Murder Mystery Double Up mode
 ### Murderer / Detective status updates
 
 - Gives a clickable chat message to remind other players the detective has died and the bow dropped.
-- Gives a clickable chat message to remind other players you know who the murderer was, his name was in chat.
+- Gives a clickable chat message to let other players know how likely is for the guy who just died to be the murderer.
+
+</details>
+
+### Settings
+
+- auto_expose: Automaticaly say `Fellow Murderer / Detective Exposer` messages instead of giving the clickable message.
+- auto_announce: Automatically Say `Murderer / Detective status updates` messages instead of giving the clickable message.
+
+
