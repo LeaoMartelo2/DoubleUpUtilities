@@ -7,15 +7,15 @@ A 1.21 CTJS module for Murder Mystery Double Up mode
 
 ### Configurating
 
-- Change by either clicking the option on `/duu` or using the manual override command `/duu set <setting> <true/false>`
+- Change by either clicking the option on `/duu`
+or using the manual override command 
+`/duu set <setting> <true/false>`
 
 
 ## Feature List
 
-<details open>
+<details closed>
 <summary>Features</summary>
-
-
 
 
 ### Fellow Murderer / Detective Exposer
