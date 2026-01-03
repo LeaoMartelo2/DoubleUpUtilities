@@ -73,7 +73,6 @@ register("command",  function(name) {
 
 register("chat", (murderer, event) => {
 
-
     snd.play();
 
     if(!settings.auto_announce) {
@@ -88,4 +87,27 @@ register("chat", (murderer, event) => {
         
 
 }).setCriteria("One of the Murderers, ${murderer}, was killed.");
+
+
+register("chat", (murderer, event) => {
+
+    snd.play();
+
+    if(!settings.auto_announce) {
+        var msg = build_murderer_death_tc(murderer);
+        ChatLib.chat(msg);
+    }
+
+    if(settings.auto_announce) {
+        let rand = Math.floor(Math.random() * 101);
+        ChatLib.say("/ac I suspect " + murderer + " is one of the murderers, " + rand + "% certainty");
+    }
+        
+
+}).setCriteria("One of the Murderers, ${murderer}, died.");
+
+
+
+// One of the Murderers, Somthing_of_it, died.
+// (apparently there is more than one message ??????)
 
