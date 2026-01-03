@@ -13,7 +13,10 @@ A 1.21 CTJS module for Murder Mystery Double Up mode
 ## Feature List
 
 <details open>
-<summary>Features</sumarry>
+<summary>Features</summary>
+
+
+
 
 ### Fellow Murderer / Detective Exposer
 
