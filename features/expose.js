@@ -56,6 +56,9 @@ register("command", function(name) {
 
 register("chat", (murderer, event) => {
 
+
+    snd.play();
+
     if(!settings.auto_expose) {
         let msg = build_text_component(murderer, "murderer");
         ChatLib.chat(msg);
@@ -64,13 +67,14 @@ register("chat", (murderer, event) => {
     if(settings.auto_expose) {
         chat_msg("auto_expose enabled, sending message");
         ChatLib.say("/ac " + murderer + " is Murderer, i saw chat");
-        snd.play();
     }
 
 }).setCriteria("Your fellow Murderer is: ${murderer}").setContains();
 
 
 register("chat", (detective, event) => {
+
+    snd.play();
 
     if(!settings.auto_expose) {
         let msg = build_text_component(detective, "detective");
@@ -80,7 +84,6 @@ register("chat", (detective, event) => {
     if(settings.auto_expose) {
         chat_msg("auto_expose enabled, sending message");
         ChatLib.say("/ac " + detective + " is Detective, i saw chat");
-        snd.play();
     }
 
 }).setCriteria("Your fellow Detective is: ${detective}").setContains();

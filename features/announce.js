@@ -21,13 +21,15 @@ register("command", () => {
 
 register("chat", () => {
 
+
+    snd.play();
+
     if(!settings.auto_announce) {
        ChatLib.chat(warn_bow_drop_text);
     }
 
     if(settings.auto_announce) {
         ChatLib.say("/ac %detective% died and the bow dropped");
-        snd.play();
     }
 
 
@@ -71,6 +73,9 @@ register("command",  function(name) {
 
 register("chat", (murderer, event) => {
 
+
+    snd.play();
+
     if(!settings.auto_announce) {
         var msg = build_murderer_death_tc(murderer);
         ChatLib.chat(msg);
@@ -79,7 +84,6 @@ register("chat", (murderer, event) => {
     if(settings.auto_announce) {
         let rand = Math.floor(Math.random() * 101);
         ChatLib.say("/ac I suspect " + murderer + " is one of the murderers, " + rand + "% certainty");
-        snd.play();
     }
         
 
