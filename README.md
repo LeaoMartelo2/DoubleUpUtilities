@@ -14,7 +14,7 @@ or using the manual override command
 
 ## Feature List
 
-<details closed>
+<details open>
 <summary>Features</summary>
 
 
