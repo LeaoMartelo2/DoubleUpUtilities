@@ -1,7 +1,0 @@
-{
-    "name" : "DoubleUpUtilities",
-    "description" : "Utilities for Murder Mystery double up mode",
-    "version" : "0.0.1",
-    "author": "LeaoMartelo2",
-    "entry": "index.js"
-}
